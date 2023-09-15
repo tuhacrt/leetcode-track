@@ -1,4 +1,4 @@
-const twoSum = (nums: number[], target: number): number[] => {
+const twoSum = (nums: Array<number>, target: number): Array<number> => {
   const { length } = nums;
   const map = new Map();
 
