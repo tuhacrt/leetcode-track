@@ -1,10 +1,17 @@
 function findDuplicate(nums: number[]): number {
-  const set = new Set();
-
-  for (let i = 0; i < nums.length; i++) {
-    if(set.has(nums[i])) return nums[i];
-    set.add(nums[i]);
+  let [slow, fast] = [nums[0], nums[nums[0]]];
+  
+  while (slow !== fast) {
+    slow = nums[slow];
+    fast = nums[nums[fast]];
   }
-
-  return 0;
+  
+  slow = 0;
+  
+  while (slow !== fast) {
+    slow = nums[slow];
+    fast = nums[fast];
+  }
+  
+  return slow;
 };
