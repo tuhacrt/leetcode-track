@@ -1,6 +1,6 @@
 function findTheDifference(s: string, t: string): string {
-  const reduceSum = (acc: number, cur: string) => acc + cur.charCodeAt(0);
-  const sum1 = s.split('').reduce(reduceSum, 0);
-  const sum2 = t.split('').reduce(reduceSum, 0);
-  return String.fromCharCode(sum2 - sum1);
+  let char = 0;
+  s.split('').forEach(x => char ^= x.charCodeAt(0));
+  t.split('').forEach(x => char ^= x.charCodeAt(0));
+  return String.fromCharCode(char);
 };
