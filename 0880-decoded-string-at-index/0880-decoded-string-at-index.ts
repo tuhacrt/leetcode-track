@@ -4,10 +4,9 @@ function decodeAtIndex(s: string, k: number): string {
   let size = BigInt(0);
   
   for (let c of s.split('')) {
-    if (c.match(/\d/)) size = size * BigInt(c);
+    if (c.match(/\d/)) size *= BigInt(c);
     else size++;
   }
-  console.log(size);
   
   for (let i = n - 1; i >= 0; --i) {
     const c = s[i];
