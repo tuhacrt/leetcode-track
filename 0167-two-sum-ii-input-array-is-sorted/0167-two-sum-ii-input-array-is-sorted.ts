@@ -1,11 +1,15 @@
-function twoSum(numbers: number[], target: number): number[] {
-  const len = numbers.length;
-  let [slow, fast] = [0, len - 1];
-  while (slow < fast) {
-      const curr = numbers[slow] + numbers[fast];
-      if (curr === target) return [slow + 1, fast + 1];
-      else if (curr > target) fast -= 1;
-      else slow += 1;
+function twoSum(nums: number[], target: number): number[] {
+  const { length: n } = nums;
+  let [l, r] = [0, n - 1];
+  
+  while (l < r) {
+    const curr = nums[l] + nums[r];
+    
+    if (curr === target) return [l + 1, r + 1];
+    
+    if (curr < target) l++;
+    else r--;
   }
+  
   return [-1, -1];
 };
