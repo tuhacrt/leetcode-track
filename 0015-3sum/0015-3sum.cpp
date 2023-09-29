@@ -1,8 +1,8 @@
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
-        sort(begin(nums), end(nums));
         vector<vector<int>> res;
+        sort(begin(nums), end(nums));
         
         for(int i = 0; i < nums.size() && nums[i] <= 0; i++) {
             if (i == 0 || nums[i - 1] != nums[i])
@@ -12,17 +12,20 @@ public:
         return res;
     }
     
-    void twoSum(vector<int>& nums, int i, vector<vector<int>> &res) {
-        unordered_set<int> set;
-        for (int j = i + 1; j < nums.size(); j++) {
-            int com = -nums[i] - nums[j];
-            
-            if (set.count(com)) {
-                res.push_back({nums[i], com, nums[j]});
-                while (j + 1 < nums.size() && nums[j] == nums[j + 1])
-                    j++;
+    void twoSum(vector<int>& nums, int idx, vector<vector<int>> &res) {
+        int n = nums.size();
+        for (int i = idx + 1, j = n - 1; i < j;) {
+            int sum = nums[i] + nums[j] + nums[idx];
+            if (sum == 0) {
+                res.push_back({ nums[i++], nums[idx], nums[j--]});
+                while (i < j && nums[i] == nums[i - 1]) {
+                    i++;
+                }
+            } else if (sum > 0) {
+                j--;
+            } else {
+                i++;
             }
-            set.insert(nums[j]);
         }
     }
 };
