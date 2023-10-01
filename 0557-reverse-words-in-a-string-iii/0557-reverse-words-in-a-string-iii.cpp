@@ -1,24 +1,26 @@
 class Solution {
 public:
-    string reverseWords(string str) {
+    string reverseWords(string s) {
         int last = -1;
-        int n = (int)str.size();
+        int n = s.size();
         
         for (int i = 0; i <= n; i++) {
-            if (i == n || str[i] == ' ') {
-                int s = last + 1;
-                int e = i - 1;
-                while (s < e) {
-                    char temp = str[s];
-                    str[s] = str[e];
-                    str[e] = temp;
-                    s++;
-                    e--;
+            if (i==n||s[i]==' ') {
+                int start = last + 1;
+                int end = i - 1;
+                
+                while (start < end) {
+                    char tmp = s[start];
+                    s[start] = s[end];
+                    s[end] = tmp;
+                    start++;
+                    end--;
                 }
+                
                 last = i;
             }
         }
         
-        return str;
+        return s;
     }
 };
