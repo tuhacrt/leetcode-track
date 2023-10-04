@@ -7,10 +7,10 @@ public:
         
         while (l < r) {
             if (H[l] < H[r]) {
-                H[l] >= ml ? (ml = H[l]) : ans += (ml-H[l]);
+                H[l] >= ml ? ml=H[l] : ans+=ml-H[l];
                 l++;
             } else {
-                H[r] >= mr ? (mr=H[r]): ans+=(mr-H[r]);
+                H[r] >= mr ? mr=H[r] : ans+=mr-H[r];
                 r--;
             }
         }
