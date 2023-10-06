@@ -7,13 +7,11 @@ public:
         unordered_set<char> set;
         
         while (r < n) {
-            char cur = s[r];
-            
-            while (set.contains(cur)) {
+            while (set.contains(s[r])) {
                 set.erase(s[l]);
                 l++;
             }
-            set.insert(cur);
+            set.insert(s[r]);
             
             ans = max(ans, r - l + 1);
             r++;
