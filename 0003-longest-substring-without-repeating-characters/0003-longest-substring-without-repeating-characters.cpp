@@ -16,7 +16,6 @@ public:
             ans = max(ans, r - l + 1);
             r++;
         }
-        ans = max(ans, r - l);
         
         return ans;
     }
