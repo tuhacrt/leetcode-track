@@ -1,27 +1,21 @@
 class Solution {
 public:
+    vector<int> memo;
+    
     int integerBreak(int n) {
-        if (n==2) return 1;
-        if (n==3) return 2;
-        int ans = 1;
-        int m = ceil(sqrt(n)) + 1;
-        cout << n << m << endl;
-        
-        for (int i = 2; i <= max(m, 2); i++) {
-            int c=n;
-            int p=1;
-            while (c > 0) {
-                if (c >= i * 1.5) {
-                    c-=i;
-                    p*=i;
-                } else {
-                    p*=c;
-                    c=0;
-                }
-            }
-            ans = max(ans, p);
-        }
-        
-        return ans;
+        if (n <= 3) return n-1;
+        memo = vector(n+1, 0);
+        return dp(n);
     }
+    
+    int dp(int n){
+        if (n <= 3) return n;
+        if (memo[n] != 0) return memo[n];
+        int ans = n;
+        for (int i = 2; i < n; i++) {
+            ans = max(ans, i*dp(n - i));
+        }
+        memo[n] = ans;
+        return ans;
+    } 
 };
