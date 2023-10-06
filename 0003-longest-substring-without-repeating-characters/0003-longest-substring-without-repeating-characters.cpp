@@ -8,12 +8,14 @@ public:
         
         while (r < n) {
             char cur = s[r];
-            ans = max(ans, r - l);
+            
             while (set.contains(cur)) {
                 set.erase(s[l]);
                 l++;
             }
             set.insert(cur);
+            
+            ans = max(ans, r - l + 1);
             r++;
         }
         ans = max(ans, r - l);
