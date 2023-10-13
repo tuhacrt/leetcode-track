@@ -2,11 +2,11 @@ class Solution {
 public:
     unordered_map<char, char> map;
     bool isValid(string s) {
-        int n = s.size();
         stack<char> st;
-        map[')'] = '(';
-        map[']'] = '[';
-        map['}'] = '{';
+        unordered_map<char, char> map = {{'}', '{'},
+                                         {')', '('},
+                                         {']', '['}};
+        int n = s.size();
 
         for (int i = 0; i < n; i++) {
             if (!map.contains(s[i])) st.push(s[i]);
@@ -16,6 +16,6 @@ public:
             }
         }
         
-        return st.size() == 0;
+        return st.empty();
     }
 };
