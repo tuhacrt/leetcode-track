@@ -1,6 +1,5 @@
 class Solution {
 public:
-    unordered_map<char, char> map;
     bool isValid(string s) {
         stack<char> st;
         unordered_map<char, char> map = {{'}', '{'},
