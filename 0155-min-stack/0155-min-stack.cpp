@@ -6,8 +6,8 @@ public:
     MinStack() {}
     
     void push(int val) {
-        st.push(val);
         if (minSt.empty() || val <= minSt.top()) minSt.push(val);
+        st.push(val);
     }
     
     void pop() {
