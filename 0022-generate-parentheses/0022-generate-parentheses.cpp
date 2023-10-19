@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<string> generateParenthesis(int n) {
         vector<string> ans = {};
-        bt(ans, {}, 0, 0, n);
+        bt(ans, "", 0, 0, n);
         return ans;
     }
 
