@@ -8,10 +8,9 @@ public:
         for (int i = 0; i < n; i++) {
             while (!st.empty() && t[i] > t[st.top()]) {
                 int prev = st.top();
-                ans[prev] = i - prev;
                 st.pop();
+                ans[prev] = i - prev;
             }
-            
             st.push(i);
         }
 
