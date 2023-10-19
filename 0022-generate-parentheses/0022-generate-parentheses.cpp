@@ -10,10 +10,8 @@ public:
     }
 
     void bt(string str, int l, int r) {
-        if (str.size() == 2 * n) {
-            ans.push_back(str);
-            return;
-        }
+        if (str.size() == 2 * n) 
+            return ans.push_back(str);
 
         if (l < n) 
             bt(str + "(", l + 1, r);
