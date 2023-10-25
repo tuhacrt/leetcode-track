@@ -5,7 +5,7 @@ public:
         int l = 0, r = n - 1;
 
         while (l < r) {
-            int m = l + (int)((r - l) / 2);
+            int m = l + (r - l) / 2;
 
             if (nums[m] == target) return m;
             if (nums[m] > target) r = m - 1;
