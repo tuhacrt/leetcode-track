@@ -5,7 +5,7 @@ public:
         int res = 0;
 
         for (int i = 0; i < hs.size(); i++) {
-            while (st.top() != -1 and hs[i] < hs[st.top()]) {
+            while (st.top() != -1 && hs[i] < hs[st.top()]) {
                 int h = hs[st.top()];
                 st.pop();
                 int w = i - st.top() - 1;
@@ -20,7 +20,7 @@ public:
             int w = hs.size() - st.top() - 1;
             res = max(res, h * w);
         }
-        
+
         return res;
     }
 };
